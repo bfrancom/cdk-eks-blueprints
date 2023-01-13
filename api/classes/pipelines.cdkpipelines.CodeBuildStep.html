@@ -23,7 +23,7 @@
 on disk. If your current build instructions are in a file like
 <code>buildspec.yml</code> in your repository, extract them to a script
 (say, <code>build.sh</code>) and invoke that script as part of the build:</p>
-<pre><code class="language-ts"><span class="hl-4">new</span><span class="hl-0"> </span><span class="hl-5">pipelines</span><span class="hl-0">.</span><span class="hl-7">CodeBuildStep</span><span class="hl-0">(</span><span class="hl-3">&#39;Synth&#39;</span><span class="hl-0">, {</span><br/><span class="hl-0">  </span><span class="hl-5">commands:</span><span class="hl-0"> [</span><span class="hl-3">&#39;./build.sh&#39;</span><span class="hl-0">],</span><br/><span class="hl-0">});</span>
+<pre><code class="language-ts"><span class="hl-4">new</span><span class="hl-0"> </span><span class="hl-5">pipelines</span><span class="hl-0">.</span><span class="hl-7">CodeBuildStep</span><span class="hl-0">(</span><span class="hl-1">&#39;Synth&#39;</span><span class="hl-0">, {</span><br/><span class="hl-0">  </span><span class="hl-5">commands:</span><span class="hl-0"> [</span><span class="hl-1">&#39;./build.sh&#39;</span><span class="hl-0">],</span><br/><span class="hl-0">});</span>
 </code></pre>
 </div></section>
 <section class="tsd-panel tsd-hierarchy">
@@ -71,7 +71,8 @@ on disk. If your current build instructions are in a file like
 </div></section>
 <section class="tsd-index-section">
 <h3 class="tsd-index-heading">Accessors</h3>
-<div class="tsd-index-list"><a href="pipelines.cdkpipelines.CodeBuildStep.html#dependencies" class="tsd-index-link tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="#FF4D4D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12" id="icon-262144-path"></rect><path d="M8.85 16L11.13 7.24H12.582L14.85 16H13.758L13.182 13.672H10.53L9.954 16H8.85ZM10.746 12.76H12.954L12.282 10.06C12.154 9.548 12.054 9.12 11.982 8.776C11.91 8.432 11.866 8.208 11.85 8.104C11.834 8.208 11.79 8.432 11.718 8.776C11.646 9.12 11.546 9.544 11.418 10.048L10.746 12.76Z" fill="var(--color-text)" id="icon-262144-text"></path></svg><span>dependencies</span></a>
+<div class="tsd-index-list"><a href="pipelines.cdkpipelines.CodeBuildStep.html#consumedStackOutputs" class="tsd-index-link tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="#FF4D4D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12" id="icon-262144-path"></rect><path d="M8.85 16L11.13 7.24H12.582L14.85 16H13.758L13.182 13.672H10.53L9.954 16H8.85ZM10.746 12.76H12.954L12.282 10.06C12.154 9.548 12.054 9.12 11.982 8.776C11.91 8.432 11.866 8.208 11.85 8.104C11.834 8.208 11.79 8.432 11.718 8.776C11.646 9.12 11.546 9.544 11.418 10.048L10.746 12.76Z" fill="var(--color-text)" id="icon-262144-text"></path></svg><span>consumed<wbr/>Stack<wbr/>Outputs</span></a>
+<a href="pipelines.cdkpipelines.CodeBuildStep.html#dependencies" class="tsd-index-link tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-262144-path"></use><use href="#icon-262144-text"></use></svg><span>dependencies</span></a>
 <a href="pipelines.cdkpipelines.CodeBuildStep.html#grantPrincipal" class="tsd-index-link tsd-kind-accessor tsd-parent-kind-class tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-262144-path"></use><use href="#icon-262144-text"></use></svg><span>grant<wbr/>Principal</span></a>
 <a href="pipelines.cdkpipelines.CodeBuildStep.html#partialBuildSpec" class="tsd-index-link tsd-kind-accessor tsd-parent-kind-class tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-262144-path"></use><use href="#icon-262144-text"></use></svg><span>partial<wbr/>Build<wbr/>Spec</span></a>
 <a href="pipelines.cdkpipelines.CodeBuildStep.html#primaryOutput" class="tsd-index-link tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-262144-path"></use><use href="#icon-262144-text"></use></svg><span>primary<wbr/>Output</span></a>
@@ -168,7 +169,7 @@ on disk. If your current build instructions are in a file like
 </div><aside class="tsd-sources">
 <p>Inherited from <a href="pipelines.cdkpipelines.ShellStep.html">ShellStep</a>.<a href="pipelines.cdkpipelines.ShellStep.html#dependencyFileSets">dependencyFileSets</a></p>
 <ul>
-<li>Defined in node_modules/aws-cdk-lib/pipelines/lib/blueprint/step.d.ts:26</li></ul></aside></section>
+<li>Defined in node_modules/aws-cdk-lib/pipelines/lib/blueprint/step.d.ts:27</li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="env" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>env</span><a href="#env" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">env<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
@@ -210,7 +211,7 @@ on disk. If your current build instructions are in a file like
 </div><aside class="tsd-sources">
 <p>Inherited from <a href="pipelines.cdkpipelines.ShellStep.html">ShellStep</a>.<a href="pipelines.cdkpipelines.ShellStep.html#id">id</a></p>
 <ul>
-<li>Defined in node_modules/aws-cdk-lib/pipelines/lib/blueprint/step.d.ts:14</li></ul></aside></section>
+<li>Defined in node_modules/aws-cdk-lib/pipelines/lib/blueprint/step.d.ts:15</li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="inputs" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>inputs</span><a href="#inputs" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">inputs<span class="tsd-signature-symbol">:</span> <a href="../interfaces/pipelines.cdkpipelines.FileSetLocation.html" class="tsd-signature-type" data-tsd-kind="Interface">FileSetLocation</a><span class="tsd-signature-symbol">[]</span></div>
@@ -243,7 +244,7 @@ differently in the job history from the regular <code>commands</code>.</p>
 </div><aside class="tsd-sources">
 <p>Inherited from <a href="pipelines.cdkpipelines.ShellStep.html">ShellStep</a>.<a href="pipelines.cdkpipelines.ShellStep.html#isSource">isSource</a></p>
 <ul>
-<li>Defined in node_modules/aws-cdk-lib/pipelines/lib/blueprint/step.d.ts:32</li></ul></aside></section>
+<li>Defined in node_modules/aws-cdk-lib/pipelines/lib/blueprint/step.d.ts:33</li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="outputs" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>outputs</span><a href="#outputs" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">outputs<span class="tsd-signature-symbol">:</span> <a href="../interfaces/pipelines.cdkpipelines.FileSetLocation.html" class="tsd-signature-type" data-tsd-kind="Interface">FileSetLocation</a><span class="tsd-signature-symbol">[]</span></div>
@@ -333,6 +334,17 @@ CodeBuild User Guide.</p>
 <li>Defined in node_modules/aws-cdk-lib/pipelines/lib/codepipeline/codebuild-step.d.ts:125</li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Accessors</h2>
+<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="consumedStackOutputs" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>consumed<wbr/>Stack<wbr/>Outputs</span><a href="#consumedStackOutputs" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+<li class="tsd-signature" id="consumedStackOutputs.consumedStackOutputs-1"><span class="tsd-signature-symbol">get</span> consumedStackOutputs<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="pipelines.cdkpipelines.StackOutputReference.html" class="tsd-signature-type" data-tsd-kind="Class">StackOutputReference</a><span class="tsd-signature-symbol">[]</span></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>StackOutputReferences this step consumes.</p>
+</div>
+<h4 class="tsd-returns-title">Returns <a href="pipelines.cdkpipelines.StackOutputReference.html" class="tsd-signature-type" data-tsd-kind="Class">StackOutputReference</a><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
+<p>Inherited from ShellStep.consumedStackOutputs</p>
+<ul>
+<li>Defined in node_modules/aws-cdk-lib/pipelines/lib/blueprint/shell-step.d.ts:151</li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="dependencies" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>dependencies</span><a href="#dependencies" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-external">
@@ -343,7 +355,7 @@ CodeBuild User Guide.</p>
 <h4 class="tsd-returns-title">Returns <a href="pipelines.cdkpipelines.Step.html" class="tsd-signature-type" data-tsd-kind="Class">Step</a><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
 <p>Inherited from ShellStep.dependencies</p>
 <ul>
-<li>Defined in node_modules/aws-cdk-lib/pipelines/lib/blueprint/step.d.ts:41</li></ul></aside></li></ul></section>
+<li>Defined in node_modules/aws-cdk-lib/pipelines/lib/blueprint/step.d.ts:42</li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-external"><a id="grantPrincipal" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>grant<wbr/>Principal</span><a href="#grantPrincipal" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class tsd-is-external">
@@ -381,7 +393,7 @@ you can substitute the <code>Step</code> object for the <code>FileSet</code> obj
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="pipelines.cdkpipelines.FileSet.html" class="tsd-signature-type" data-tsd-kind="Class">FileSet</a></h4><aside class="tsd-sources">
 <p>Inherited from ShellStep.primaryOutput</p>
 <ul>
-<li>Defined in node_modules/aws-cdk-lib/pipelines/lib/blueprint/step.d.ts:52</li></ul></aside></li></ul></section>
+<li>Defined in node_modules/aws-cdk-lib/pipelines/lib/blueprint/step.d.ts:53</li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-external"><a id="project" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>project</span><a href="#project" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class tsd-is-external">
@@ -426,7 +438,7 @@ you can substitute the <code>Step</code> object for the <code>FileSet</code> obj
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="pipelines.cdkpipelines.ShellStep.html">ShellStep</a>.<a href="pipelines.cdkpipelines.ShellStep.html#addDependencyFileSet">addDependencyFileSet</a></p>
 <ul>
-<li>Defined in node_modules/aws-cdk-lib/pipelines/lib/blueprint/step.d.ts:62</li></ul></aside></li></ul></section>
+<li>Defined in node_modules/aws-cdk-lib/pipelines/lib/blueprint/step.d.ts:63</li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="addOutputDirectory" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>add<wbr/>Output<wbr/>Directory</span><a href="#addOutputDirectory" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
@@ -463,7 +475,7 @@ will return the same FileSet.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="pipelines.cdkpipelines.ShellStep.html">ShellStep</a>.<a href="pipelines.cdkpipelines.ShellStep.html#addStepDependency">addStepDependency</a></p>
 <ul>
-<li>Defined in node_modules/aws-cdk-lib/pipelines/lib/blueprint/step.d.ts:56</li></ul></aside></li></ul></section>
+<li>Defined in node_modules/aws-cdk-lib/pipelines/lib/blueprint/step.d.ts:57</li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-inherited tsd-is-external"><a id="configurePrimaryOutput" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagProtected">Protected</code> <span>configure<wbr/>Primary<wbr/>Output</span><a href="#configurePrimaryOutput" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-inherited tsd-is-external">
@@ -479,7 +491,7 @@ will return the same FileSet.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="pipelines.cdkpipelines.ShellStep.html">ShellStep</a>.<a href="pipelines.cdkpipelines.ShellStep.html#configurePrimaryOutput">configurePrimaryOutput</a></p>
 <ul>
-<li>Defined in node_modules/aws-cdk-lib/pipelines/lib/blueprint/step.d.ts:66</li></ul></aside></li></ul></section>
+<li>Defined in node_modules/aws-cdk-lib/pipelines/lib/blueprint/step.d.ts:67</li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-inherited tsd-is-external"><a id="discoverReferencedOutputs" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagProtected">Protected</code> <span>discover<wbr/>Referenced<wbr/>Outputs</span><a href="#discoverReferencedOutputs" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-inherited tsd-is-external">
@@ -499,7 +511,7 @@ engine, it just needs to contain the same data.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="pipelines.cdkpipelines.ShellStep.html">ShellStep</a>.<a href="pipelines.cdkpipelines.ShellStep.html#discoverReferencedOutputs">discoverReferencedOutputs</a></p>
 <ul>
-<li>Defined in node_modules/aws-cdk-lib/pipelines/lib/blueprint/step.d.ts:75</li></ul></aside></li></ul></section>
+<li>Defined in node_modules/aws-cdk-lib/pipelines/lib/blueprint/step.d.ts:76</li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external"><a id="exportedVariable" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>exported<wbr/>Variable</span><a href="#exportedVariable" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
@@ -509,7 +521,7 @@ engine, it just needs to contain the same data.</p>
 <p>The variable must be set in the shell of the CodeBuild step when
 it finishes its <code>post_build</code> phase.</p>
 
-<h3>Example</h3><pre><code class="language-ts"><span class="hl-1">// Access the output of one CodeBuildStep in another CodeBuildStep</span><br/><span class="hl-4">declare</span><span class="hl-0"> </span><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-6">pipeline</span><span class="hl-0">: </span><span class="hl-8">pipelines</span><span class="hl-0">.</span><span class="hl-8">CodePipeline</span><span class="hl-0">;</span><br/><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-6">step1</span><span class="hl-0"> = </span><span class="hl-4">new</span><span class="hl-0"> </span><span class="hl-5">pipelines</span><span class="hl-0">.</span><span class="hl-7">CodeBuildStep</span><span class="hl-0">(</span><span class="hl-3">&#39;Step1&#39;</span><span class="hl-0">, {</span><br/><span class="hl-0">  </span><span class="hl-5">commands:</span><span class="hl-0"> [</span><span class="hl-3">&#39;export MY_VAR=hello&#39;</span><span class="hl-0">],</span><br/><span class="hl-0">});</span><br/><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-6">step2</span><span class="hl-0"> = </span><span class="hl-4">new</span><span class="hl-0"> </span><span class="hl-5">pipelines</span><span class="hl-0">.</span><span class="hl-7">CodeBuildStep</span><span class="hl-0">(</span><span class="hl-3">&#39;Step2&#39;</span><span class="hl-0">, {</span><br/><span class="hl-0">  </span><span class="hl-5">env:</span><span class="hl-0"> {</span><br/><span class="hl-0">    </span><span class="hl-5">IMPORTED_VAR:</span><span class="hl-0"> </span><span class="hl-5">step1</span><span class="hl-0">.</span><span class="hl-7">exportedVariable</span><span class="hl-0">(</span><span class="hl-3">&#39;MY_VAR&#39;</span><span class="hl-0">),</span><br/><span class="hl-0">  },</span><br/><span class="hl-0">  </span><span class="hl-5">commands:</span><span class="hl-0"> [</span><span class="hl-3">&#39;echo $IMPORTED_VAR&#39;</span><span class="hl-0">],</span><br/><span class="hl-0">});</span>
+<h3>Example</h3><pre><code class="language-ts"><span class="hl-2">// Access the output of one CodeBuildStep in another CodeBuildStep</span><br/><span class="hl-4">declare</span><span class="hl-0"> </span><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-6">pipeline</span><span class="hl-0">: </span><span class="hl-8">pipelines</span><span class="hl-0">.</span><span class="hl-8">CodePipeline</span><span class="hl-0">;</span><br/><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-6">step1</span><span class="hl-0"> = </span><span class="hl-4">new</span><span class="hl-0"> </span><span class="hl-5">pipelines</span><span class="hl-0">.</span><span class="hl-7">CodeBuildStep</span><span class="hl-0">(</span><span class="hl-1">&#39;Step1&#39;</span><span class="hl-0">, {</span><br/><span class="hl-0">  </span><span class="hl-5">commands:</span><span class="hl-0"> [</span><span class="hl-1">&#39;export MY_VAR=hello&#39;</span><span class="hl-0">],</span><br/><span class="hl-0">});</span><br/><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-6">step2</span><span class="hl-0"> = </span><span class="hl-4">new</span><span class="hl-0"> </span><span class="hl-5">pipelines</span><span class="hl-0">.</span><span class="hl-7">CodeBuildStep</span><span class="hl-0">(</span><span class="hl-1">&#39;Step2&#39;</span><span class="hl-0">, {</span><br/><span class="hl-0">  </span><span class="hl-5">env:</span><span class="hl-0"> {</span><br/><span class="hl-0">    </span><span class="hl-5">IMPORTED_VAR:</span><span class="hl-0"> </span><span class="hl-5">step1</span><span class="hl-0">.</span><span class="hl-7">exportedVariable</span><span class="hl-0">(</span><span class="hl-1">&#39;MY_VAR&#39;</span><span class="hl-0">),</span><br/><span class="hl-0">  },</span><br/><span class="hl-0">  </span><span class="hl-5">commands:</span><span class="hl-0"> [</span><span class="hl-1">&#39;echo $IMPORTED_VAR&#39;</span><span class="hl-0">],</span><br/><span class="hl-0">});</span>
 </code></pre>
 </div>
 <div class="tsd-parameters">
@@ -552,7 +564,7 @@ currently configured primary output directory.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="pipelines.cdkpipelines.ShellStep.html">ShellStep</a>.<a href="pipelines.cdkpipelines.ShellStep.html#toString">toString</a></p>
 <ul>
-<li>Defined in node_modules/aws-cdk-lib/pipelines/lib/blueprint/step.d.ts:45</li></ul></aside></li></ul></section>
+<li>Defined in node_modules/aws-cdk-lib/pipelines/lib/blueprint/step.d.ts:46</li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="sequence" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>sequence</span><a href="#sequence" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
@@ -571,7 +583,7 @@ API. For example, if you want <code>secondStep</code> to occur after <code>first
 <h4 class="tsd-returns-title">Returns <a href="pipelines.cdkpipelines.Step.html" class="tsd-signature-type" data-tsd-kind="Class">Step</a><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="pipelines.cdkpipelines.ShellStep.html">ShellStep</a>.<a href="pipelines.cdkpipelines.ShellStep.html#sequence">sequence</a></p>
 <ul>
-<li>Defined in node_modules/aws-cdk-lib/pipelines/lib/blueprint/step.d.ts:22</li></ul></aside></li></ul></section></section></div>
+<li>Defined in node_modules/aws-cdk-lib/pipelines/lib/blueprint/step.d.ts:23</li></ul></aside></li></ul></section></section></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
@@ -630,6 +642,7 @@ API. For example, if you want <code>secondStep</code> to occur after <code>first
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="pipelines.cdkpipelines.CodeBuildStep.html#subnetSelection" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>subnet<wbr/>Selection?</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="pipelines.cdkpipelines.CodeBuildStep.html#timeout" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>timeout?</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="pipelines.cdkpipelines.CodeBuildStep.html#vpc" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>vpc?</a></li>
+<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pipelines.cdkpipelines.CodeBuildStep.html#consumedStackOutputs" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-262144-path"></use><use href="#icon-262144-text"></use></svg>consumed<wbr/>Stack<wbr/>Outputs</a></li>
 <li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pipelines.cdkpipelines.CodeBuildStep.html#dependencies" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-262144-path"></use><use href="#icon-262144-text"></use></svg>dependencies</a></li>
 <li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-external"><a href="pipelines.cdkpipelines.CodeBuildStep.html#grantPrincipal" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-262144-path"></use><use href="#icon-262144-text"></use></svg>grant<wbr/>Principal</a></li>
 <li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-external"><a href="pipelines.cdkpipelines.CodeBuildStep.html#partialBuildSpec" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-262144-path"></use><use href="#icon-262144-text"></use></svg>partial<wbr/>Build<wbr/>Spec</a></li>

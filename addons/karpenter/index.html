@@ -369,6 +369,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../ack-addon/" class="md-nav__link">
+        ACK
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../adot-addon/" class="md-nav__link">
         ADOT
       </a>
@@ -1325,7 +1339,9 @@
 <span class="w">  </span><span class="p">}],</span><span class="w"></span>
 <span class="w">  </span><span class="nx">amiFamily</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;AL2&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">  </span><span class="nx">consolidation</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">enabled</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="nx">weight</span><span class="o">:</span><span class="w"> </span><span class="kt">20</span><span class="w"></span>
+<span class="w">  </span><span class="nx">ttlSecondsUntilExpired</span><span class="o">:</span><span class="w"> </span><span class="kt">2592000</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">weight</span><span class="o">:</span><span class="w"> </span><span class="kt">20</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">interruptionHandling</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">vpcCniAddOn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">VpcCniAddOn</span><span class="p">();</span><span class="w"></span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">karpenterAddOn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">KarpenterAddOn</span><span class="p">(</span><span class="nx">karpenterAddonProps</span><span class="p">);</span><span class="w"></span>
@@ -1336,9 +1352,10 @@
 <span class="w">  </span><span class="p">.</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;my-stack-name&#39;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <p>The add-on automatically sets the following Helm Chart <a href="https://github.com/aws/karpenter/tree/main/charts/karpenter#values">values</a>, and it is <strong>highly recommended</strong> not to pass these values in (as it will result in errors):
-- aws.defaultInstanceProfile
-- clusterEndpoint
-- clusterName
+- settings.aws.defaultInstanceProfile
+- settings.aws.clusterEndpoint
+- settings.aws.clusterName
+- settings.aws.interruptionQueueName (if interruption handling is enabled)
 - serviceAccount.create
 - serviceAccount.name
 - serviceAccount.annotations.eks.amazonaws.com/role-arn</p>
@@ -1360,7 +1377,8 @@ blueprints-addon-karpenter-54fd978b89-hclmp   <span class="m">2</span>/2     Run
 1. The default provisioner is created only if both the subnet tags and the security group tags are provided.
 2. Provisioner spec requirement fields are not necessary, as karpenter will dynamically choose (i.e. leaving instance-type blank will let karpenter choose approrpriate sizing).
 3. Consolidation, which is a flag that enables , is supported on versions 0.15.0 and later. It is also mutually exclusive with <code>ttlSecondsAfterempty</code>, so if you provide both properties, the addon will throw an error.
-4. Weight, which is a property to prioritize provisioners based on weight, is supported on versions 0.16.0 and later. Addon will throw an error if weight is provided for earlier versions.</p>
+4. Weight, which is a property to prioritize provisioners based on weight, is supported on versions 0.16.0 and later. Addon will throw an error if weight is provided for earlier versions.
+5. Interruption Handling, which is a native way to handle interruption due to involuntary interruption events, is supported on versions 0.19.0 and later. For interruption handling in the earlier versions, Karpenter supports using AWS Node Interruption Handler (which you will need to add as an add-on and <strong><em>must be in add-on array after the Karpenter add-on</em></strong> for it to work.</p>
 <h2 id="using-karpenter">Using Karpenter<a class="headerlink" href="#using-karpenter" title="Permanent link">&para;</a></h2>
 <p>To use Karpenter, you need to provision a Karpenter <a href="https://karpenter.sh/docs/provisioner/">provisioner CRD</a>. A single provisioner is capable of handling many different pod shapes.</p>
 <p>This can be done in 2 ways:</p>
@@ -1439,7 +1457,19 @@ blueprints-addon-karpenter-54fd978b89-hclmp   <span class="m">2</span>/2     Run
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <p>The following are common troubleshooting issues observed when implementing Karpenter:</p>
 <ol>
-<li>For Karpenter version older than <code>0.14.0</code> deployed on Fargate Profiles, <code>values.yaml</code> must be overridden, setting <code>dnsPolicy</code> to <code>Default</code>. Versions after <code>0.14.0</code> has <code>dnsPolicy</code> value set default to <code>Default</code>. This is to ensure CoreDNS is set correctly on Fargate nodes.</li>
+<li>
+<p>For Karpenter version older than <code>0.14.0</code> deployed on Fargate Profiles, <code>values.yaml</code> must be overridden, setting <code>dnsPolicy</code> to <code>Default</code>. Versions after <code>0.14.0</code> has <code>dnsPolicy</code> value set default to <code>Default</code>. This is to ensure CoreDNS is set correctly on Fargate nodes.</p>
+</li>
+<li>
+<p>With the upgrade to the new OCI registry starting with <code>v0.17.0</code>, if you try to upgrade you may get a following error:</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>Received response status [FAILED] from custom resource. Message returned: Error: b&#39;Error: path &quot;/tmp/tmpkxgr57q5/blueprints-addon-karpenter&quot; not found\n&#39; 
+</code></pre></div>
+<p>Karpenter, starting from the OCI registry versions, will untar the files under <code>karpenter</code> release name only. So if you have previous version deployed under a different release name, you will run into the above error. Therefore, in order to upgrade, you will have to take the following steps:</p>
+<ol>
+<li>Remove the existing add-on.</li>
+<li>Re-deploy the Karpenter add-on with the release name <code>karpenter</code>.</li>
 </ol>
 <h2 id="upgrade-path">Upgrade Path<a class="headerlink" href="#upgrade-path" title="Permanent link">&para;</a></h2>
 <ol>
@@ -1462,7 +1492,21 @@ blueprints-addon-karpenter-54fd978b89-hclmp   <span class="m">2</span>/2     Run
 </code></pre></div>
 <p>The property is changed to align with the naming convention of the provisioner, and to allow multiple operators (In vs NotIn). The values correspond similarly between the two, with type change being the only difference.</p>
 <ol>
-<li>Certain upgrades require reapplying the CRDs since Helm does not maintain the lifecycle of CRDs. Please see the <a href="https://karpenter.sh/v0.16.0/upgrade-guide/#custom-resource-definition-crd-upgrades">official documentations</a> for details.</li>
+<li>
+<p>Certain upgrades require reapplying the CRDs since Helm does not maintain the lifecycle of CRDs. Please see the <a href="https://karpenter.sh/v0.16.0/upgrade-guide/#custom-resource-definition-crd-upgrades">official documentations</a> for details.</p>
+</li>
+<li>
+<p>Starting with v0.17.0, Karpenter's Helm chart package is stored in OCI (Open Container Initiative) registry. With this change, <a href="https://charts.karpenter.sh/">charts.karpenter.sh</a> is no longer updated to preserve older versions. You have to adjust for the following:</p>
+</li>
+<li>
+<p>The full URL needs to be present (including 'oci://').</p>
+</li>
+<li>
+<p>You need to append a <code>v</code> to the version number (i.e. v0.17.0, not 0.17.0)</p>
+</li>
+<li>
+<p>Starting with v0.22.0, Karpenter will no longer work on Kubernetes version prior to 1.21. Either upgrade your Kubernetes to 1.21 or later version and apply Karpenter, or use prior Karpenter versions.</p>
+</li>
 </ol>
 
 

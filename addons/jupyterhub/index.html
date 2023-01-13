@@ -369,6 +369,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../ack-addon/" class="md-nav__link">
+        ACK
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../adot-addon/" class="md-nav__link">
         ADOT
       </a>
@@ -1224,7 +1238,7 @@
 <p>The Hub can offer notebook servers to a class of students, a corporate data science workgroup, a scientific research project, or a high-performance computing group.</p>
 <p>For more information regarding a Jupyter notebook, please consult the <a href="https://jupyter-notebook.readthedocs.io/en/stable/notebook.html">official documentation</a>.</p>
 <p><strong><em>IMPORTANT</em></strong>: This add-on depends on <a href="../ebs-csi-driver/">EBS CSI Driver</a> Add-on for using EBS as persistent storage.</p>
-<p><strong><em>EBS CSI Driver add-on must be present in add-on array</em></strong> and <strong><em>must be in add-on array before the Jupyter add-on</em></strong> for it to work, as shown in below example. Otherwise will run into error <code>Assertion failed: Missing a dependency for EbsCsiDriverAddOn</code>.</p>
+<p><strong><em>EBS CSI Driver or EFS CSI Driver add-on must be present in add-on array</em></strong> and <strong><em>must be in add-on array before the Jupyter add-on</em></strong> for it to work, as shown in below example (with EBS). Otherwise will run into error <code>Assertion failed: Missing a dependency for &lt;EbsCsiDriverAddOn or EfsCsiDriverAddOn&gt;</code>.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s1">&#39;source-map-support/register&#39;</span><span class="p">;</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">cdk</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;aws-cdk-lib&#39;</span><span class="p">;</span><span class="w"></span>
@@ -1247,7 +1261,8 @@
 <span class="w">    </span><span class="nx">scope</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="c1">//list of OIDC provider scopes</span><span class="w"></span>
 <span class="w">    </span><span class="nx">usernameKey</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;username key&gt;&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="nx">enableIngress?</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="w"></span>
+<span class="w">  </span><span class="nx">enableIngress?</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">notebookStack</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;jupyter/datascience-notebook&#39;</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">ebsCsiAddOn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">EbsCsiDriverAddOn</span><span class="p">();</span><span class="w"></span>
@@ -1272,8 +1287,11 @@ user-scheduler-7dbd789bc4-gcb8z   <span class="m">1</span>/1     Running   <span
 <h2 id="functionality">Functionality<a class="headerlink" href="#functionality" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Deploys the jupyterhub helm chart in <code>jupyterhub</code> namespace by default.</li>
-<li>(Optional) Leverages EBS as persistent storage if storage type and capacity are provided. If you provide this configuration, <strong><em>EBS CSI Driver add-on must be present in add-on array</em></strong> and <strong><em>must be in add-on array before the JupyterHub add-on</em></strong> for it to work, as shown in above example. Otherwise it will not work.</li>
+<li>JupyterHub is backed with persistent storage. You must provide <strong><em>one (and only one)</em></strong> of the following configuration (or otherwise will receive an error):</li>
+<li>Leverage EBS as persistent storage with storage type and capacity provided. If you provide this configuration, <strong><em>EBS CSI Driver add-on must be present in add-on array</em></strong> and <strong><em>must be in add-on array before the JupyterHub add-on</em></strong> for it to work, as shown in above example. Otherwise it will not work.</li>
+<li>Leverage EFS as persistent storage with the name, capacity and file system removal policy provided. If you provide this configuration, <strong><em>EFS CSI Driver add-on must be present in add-on array</em></strong> and <strong><em>must be in add-on array before the JupyterHub add-on</em></strong> for it to work, as shown in above example. Otherwise it will not work.</li>
 <li>(Optional) Leverage OIDC Provider as a way to manage authentication and authorization. If not provided, the default creates no user, and the user will be able to login with any arbitrary username and password. <strong>It is highly recommended to leverage an Identity provider for any production use case.</strong></li>
+<li>(Optional) Leverage a different notebook stack than the standard one provided. Jupyter team maintains a set of Docker image definition in a GitHub repository as explained <a href="https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html">here</a>.</li>
 <li>Supports <a href="../#standard-helm-add-on-configuration-options">standard helm configuration options</a>.</li>
 </ol>
 <p><strong><em>Note</em></strong>: For custom helm values, please consult the <a href="https://zero-to-jupyterhub.readthedocs.io/en/latest/resources/reference.html#">official documentation</a>. </p>

@@ -477,6 +477,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../addons/ack-addon/" class="md-nav__link">
+        ACK
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../addons/adot-addon/" class="md-nav__link">
         ADOT
       </a>
@@ -1345,8 +1359,8 @@ sudo apt install nodejs
 </div>
 <p>Create a directory that represents you project (e.g. <code>my-blueprints</code>) and then create a new <code>typescript</code> CDK project in that directory.</p>
 <div class="highlight"><pre><span></span><code>n stable <span class="c1"># may require sudo </span>
-npm install -g aws-cdk@2.51.1 <span class="c1"># may require sudo (Ubuntu) depending on configuration</span>
-cdk --version <span class="c1"># must produce 2.51.1</span>
+npm install -g aws-cdk@2.60.0 <span class="c1"># may require sudo (Ubuntu) depending on configuration</span>
+cdk --version <span class="c1"># must produce 2.60.0</span>
 mkdir my-blueprints
 <span class="nb">cd</span> my-blueprints
 cdk init app --language typescript
@@ -1382,6 +1396,7 @@ npm install typescript@~4.8.4 <span class="c1"># installs compatible version of 
 <span class="w">    </span><span class="p">.</span><span class="nx">account</span><span class="p">(</span><span class="nx">account</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">.</span><span class="nx">region</span><span class="p">(</span><span class="nx">region</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">.</span><span class="nx">addOns</span><span class="p">(...</span><span class="nx">addOns</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="nx">useDefaultSecretEncryption</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="c1">// set to false to turn secret encryption off (non-production/demo cases)</span><span class="w"></span>
 <span class="w">    </span><span class="p">.</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;eks-blueprint&#39;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <p>Each combination of target account and region must be bootstrapped prior to deploying stacks. Bootstrapping is a process of creating IAM roles and lambda functions that can execute some of the common CDK constructs.</p>

@@ -430,6 +430,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../addons/ack-addon/" class="md-nav__link">
+        ACK
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../addons/adot-addon/" class="md-nav__link">
         ADOT
       </a>
@@ -1233,7 +1247,7 @@
 
 <h1 id="emr-on-eks-team">EMR on EKS Team<a class="headerlink" href="#emr-on-eks-team" title="Permanent link">&para;</a></h1>
 <p>The <code>EMR on EKS Team</code> extends the <code>ApplicationTeam</code> and allows the EMR on EKS team to manage the namespace where the virtual cluster is deployed. This team <strong>MUST</strong> be used in conjuction with <a href="../../addons/emr-eks/">EMR on EKS AddOn</a>.</p>
-<p>The EMR on EKS Team allows you to create a <a href="https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/virtual-cluster.html">Virtual Cluster</a> and job Execution Roles that are used by the job to access data in Amazon S3, AWS Glue Data Catalog or any other AWS resources that you need to interact with. The job execution roles are scoped with IRSA to be only assumed by pods deployed by EMR on EKS in the namespace of the virtual cluster. You can learn more about the condition applied <a href="https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/iam-execution-role.html">here</a>. </p>
+<p>The EMR on EKS Team allows you to create a <a href="https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/virtual-cluster.html">Virtual Cluster</a> and job Execution Roles that are used by the job to access data in Amazon S3, AWS Glue Data Catalog or any other AWS resources that you need to interact with. The job execution roles are scoped with IRSA to be only assumed by pods deployed by EMR on EKS in the namespace of the virtual cluster. You can learn more about the condition applied <a href="https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/iam-execution-role.html">here</a>. The IAM roles will have the following format: <code>NAME-AWS_REGION-EKS_CLUSTER_NAME</code>.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s1">&#39;source-map-support/register&#39;</span><span class="p">;</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">cdk</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;aws-cdk-lib&#39;</span><span class="p">;</span><span class="w"></span>
